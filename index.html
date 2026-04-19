@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Birthday Surprise</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(#1a1a2e, #16213e);
+    color: white;
+    text-align: center;
+  }.page { display: none; height: 100vh; width: 100vw; position: absolute; top: 0; left: 0; padding: 40px; box-sizing: border-box; }
+
+.active { display: block; }
+
+h1 { margin-top: 40px; font-size: 40px; }
+
+button { margin-top: 30px; padding: 12px 24px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; background: #ff4d6d; color: white; }
+
+/* Balloons */ .balloon { position: absolute; bottom: -100px; width: 30px; height: 40px; border-radius: 50%; animation: floatUp 8s linear infinite; opacity: 0.8; }
+
+@keyframes floatUp { 0% { transform: translateY(0); } 100% { transform: translateY(-120vh); } }
+
+/* Confetti */ .confetti { position: absolute; width: 8px; height: 8px; background: yellow; top: -10px; animation: fall 5s linear infinite; }
+
+@keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(120vh) rotate(360deg); } }
+
+/* Cake */ .cake { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); width: 200px; height: 120px; background: #d2691e; border-radius: 10px; }
+
+.candle { position: absolute; width: 8px; height: 40px; background: white; top: -40px; }
+
+.candle:nth-child(1) { left: 50px; } .candle:nth-child(2) { left: 95px; } .candle:nth-child(3) { left: 140px; }
+
+.flame { width: 10px; height: 10px; background: orange; border-radius: 50%; position: absolute; top: -10px; left: -1px; animation: flicker 0.3s infinite; }
+
+@keyframes flicker { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } } </style>
+
+</head>
+<body><!-- PAGE 1 --><div class="page active" id="page1">
+  <h1>HAPPII BIRTHDAY BISHH🥳🎉</h1>
+  <p>yayayyyyyy im sosoo happii its urr birthdayy and im so happii that im here to wish it to u and finally ure one step more close to becoming unc😝</p>
+  <button onclick="nextPage(2)">click ts,soon to be unc😝</button>
+</div><!-- PAGE 2 --><div class="page" id="page2">
+  <h1>A little poem for maii luv😝</h1>
+  <p>Your gyatt is legendary ur vibe is ohio-tier</p>
+  <p>the glazing is real for urr fav time of year</p>
+  <p>Your aura is infinite its actually insane</p>
+  <p>you've got free rent inside of my brain</p>
+  <p>The biological father of being so fine</p>
+  <p>im so delulu glad that ure mine</p>
+  <p>You're the sigma of my hart its a fact</p>
+  <p>im glazing ur beauty my brain has been hacked</p>
+  <p>Happii birthday maii luvvv maii alpha mai hart</p>
+  <p>may ur skibidi vibes never ever depart</p>
+	<button onclick="nextPage(3)">stop being annoying and click ts🙄</button>
+</div><!-- PAGE 3 --><div class="page" id="page3">
+  <h1>Some riyal stuff😛</h1>
+  <p>i didn’t need a special day to care about u
+but i’ll still take this one to remind u ure not ordinary to me not something small or replaceable, you’re the kind of person who quietly became important without me even realizing when it happened so today isn’t just about your birthday it’s about reminding you that you matter to me in a way i don’t always say out loud i’m really glad it’s u and honestly… i’d still pick you again without overthinking it and i wanna be there for u to wish u urr every birthday its such a sweet feeling bihh im so happii forr uu ure growing and becoming unc😝 maii luvv have a lovely birthday and i wish this year is easy and lovely for uu...its a blessing to have u in my life and im soo glad u were born even tho u annoy me and bully me sm🙄🖕 im so luckii to have u in my life u exist in such a beautiful and precious way u matter too much more to me than u think im soo happii to be here with u at this moment of ur life muwahhhh maii prettiee bebii im soo in luv with uu enjoii urr birthday!!(⁠≧⁠▽⁠≦⁠)</p>
+  <button onclick="nextPage(4)">clickk😠</button>
+</div><!-- PAGE 4 --><div class="page" id="page4">
+  <h1>YAYAYAYAYY ILYSM!!🥳</h1>
+  <p>yayyayaayayyahehe!! muwahmuwahmuwahh enjoii urr day and im so proud of uu maii fav beech growing so cutely😝 AAAAAA URE DEEP IN MAII HART I WISH I WAS THERE TO CELEBRATE UR BIRTHDAY 😠💔 and bish dun go to skool plis cuz the shooting threat🥺 its making me worried 😔🖕 be safeee maii luvvv muwahhh ure so important and special to me on everyday and itss sooo cutewwww that u were just a little cute bebii born on this day awwwhhhh hehe so cuteeeee muwahhh</p>  <div class="cake">
+  <p>A cake forr uu 🦭🦭</p>  
+	  <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+  </div><button onclick="restart()">Restart</button>
+
+</div><script>
+function nextPage(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + n).classList.add('active');
+}
+
+function restart() {
+  nextPage(1);
+}
+
+// balloons
+function createBalloons() {
+  for (let i = 0; i < 20; i++) {
+    let b = document.createElement('div');
+    b.className = 'balloon';
+    b.style.left = Math.random() * 100 + 'vw';
+    b.style.background = `hsl(${Math.random() * 360},70%,60%)`;
+    b.style.animationDuration = (5 + Math.random() * 5) + 's';
+    document.body.appendChild(b);
+  }
+}
+
+// confetti
+function createConfetti() {
+  for (let i = 0; i < 50; i++) {
+    let c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = `hsl(${Math.random() * 360},80%,60%)`;
+    c.style.animationDuration = (3 + Math.random() * 3) + 's';
+    document.body.appendChild(c);
+  }
+}
+
+createBalloons();
+createConfetti();
+</script></body>
+	</html>
